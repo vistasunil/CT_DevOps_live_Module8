@@ -34,7 +34,7 @@
 
 1. Create a Jenkins job **Demo** to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave1 instance in container.
 2. Observe the console output of this job to understand the stages output during execution.
-3. Create another job **Demoprod" to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave2 instance in container.
+3. Create another job **Demoprod** to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave2 instance in container.
 4. Configure and update the Demo job to trigger Demoprod internally, only if the Demo build is stable
 5. Create a Jenkins pipeline view using **Build Pipeline** plugin and to trigger and view Demo and Demoprod job
 6. Create another job **Cleanup** to delete workspace of Demo job and trigger internally, only if Demo job fails.
