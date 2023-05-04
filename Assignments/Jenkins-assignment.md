@@ -32,12 +32,12 @@
 
 ### Complete below tasks as part of this exercise:
 
-1. Create a Jenkins job "Demo" to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave1 instance in container.
+1. Create a Jenkins job **Demo** to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave1 instance in container.
 2. Observe the console output of this job to understand the stages output during execution.
-3. Create another job "Demoprod", " to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave2 instance in container.
+3. Create another job **Demoprod" to clone repo https://github.com/vistasunil/devopsIQ.git and deploy the website inside it the slave2 instance in container.
 4. Configure and update the Demo job to trigger Demoprod internally, only if the Demo build is stable
-5. Create a Jenkins pipeline view using "Build Pipeline" plugin and to trigger and view Demo and Demoprod job
-6. Create another job "Cleanup" to delete workspace of Demo job and trigger internally, only if Demo job fails.
+5. Create a Jenkins pipeline view using **Build Pipeline** plugin and to trigger and view Demo and Demoprod job
+6. Create another job **Cleanup** to delete workspace of Demo job and trigger internally, only if Demo job fails.
 
 ## Exercise 2: Jenkins Pipeline for CI/CD
 
@@ -64,6 +64,6 @@
   3. Remove existing containers for devopsiq website
   4. Deploy the website using one container with name devopsiq website.
   5. Checkout Selenium code repo https://github.com/vistasunil/selenium.git
-  6. Test the website is running and title is "Jenkins Webhook Website"
+  6. Test the website is running and title is **Jenkins Webhook Website**
 
 _**Note: Refer code testing.java to test the webpage title.**_
