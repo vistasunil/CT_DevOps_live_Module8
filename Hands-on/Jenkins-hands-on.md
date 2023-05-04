@@ -47,7 +47,7 @@ First, we have created 3 instances Master Slave1and Slave2. And then we have ins
 
 ![image](https://user-images.githubusercontent.com/37858762/236325469-8b58cf0a-500c-4b8a-928a-f523da2b3242.png)
 
-### Step 2: Now open browser and enter _ **masterIP:8080** _
+### Step 2: Now open browser and enter _**http://master-public-IP:8080**_
 
 You should land on a page like this:
 
