@@ -171,7 +171,7 @@ Paste the command line in the Slave2 Terminal.
 
 ![image](https://user-images.githubusercontent.com/37858762/236324833-932f3697-8855-4add-a173-de9e06bbd08a.png)
 
-_ **Important Note: __Don't end the Sessions that we just Connected. To perform further operations on Slave1 and Slave2 duplicate the sessions._
+_**Important Note: Don't end the Sessions that we just Connected. To perform further operations on Slave1 and Slave2 duplicate the sessions.**_
 
 So now that our Slave1 and Slave2 has been connected to Jenkins Server, it looks like this.
 
@@ -379,7 +379,7 @@ Click on ok. You should see the Pipeline Page like this.
 
 **Now we will commit on GitHub, which should trigger our Jenkins Job.**
 
-### Step 27: Go to the Jenkins Dashboard. Click on Demo and then Configure. Check the _ **GitHub hook trigger for GITScm polling** _ option.
+### Step 27: Go to the Jenkins Dashboard. Click on Demo and then Configure. Check the _**GitHub hook trigger for GITScm polling**_ option.
 
 ![image](https://user-images.githubusercontent.com/37858762/236323727-c19a0ba9-dfee-4d5f-9a61-63190a0c93a9.png)
 
