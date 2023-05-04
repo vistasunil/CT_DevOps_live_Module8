@@ -35,7 +35,7 @@
 3. **Set up a Jenkins Master-Slave Cluster**
 4. **Create a CI CD pipeline triggered by Git Webhook.**
 
-### Install Jenkins
+## Install Jenkins
 
 [Refer official documentation](https://www.jenkins.io/doc/book/installing/linux/) for installation steps.
 
@@ -179,7 +179,7 @@ So now that our Slave1 and Slave2 has been connected to Jenkins Server, it looks
 
 After we have successfully created the Master Slave Cluster on AWS Jenkins. We will now create a CI CD pipeline triggered by Git Webhook.
 
-### Hands-on: Create and Run Jenkins Jobs.
+## Hands-on: Create and Run Jenkins Jobs.
 
 ### Step 1: Before that open your GitHub account and import the below given repository.
 
