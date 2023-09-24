@@ -29,7 +29,9 @@
 
 ## Install Jenkins
 
-[Refer official documentation](https://www.jenkins.io/doc/book/installing/linux/) for installation steps.
+[Refer official documentation](https://www.jenkins.io/doc/book/installing/linux/) for installation steps. 
+
+[Refer offline plugin download page](https://updates.jenkins.io/download/plugins/).
 
 First, we have created 3 instances Master Slave1and Slave2. And then we have installed the Jenkins on Master Machine. Now Let us set up the Jenkins Master-Slave Cluster.
 
