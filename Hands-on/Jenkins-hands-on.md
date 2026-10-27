@@ -29,7 +29,31 @@
 
 ## Install Jenkins
 
-[Refer official documentation](https://www.jenkins.io/doc/book/installing/linux/) for installation steps. 
+[Refer official documentation](https://www.jenkins.io/doc/book/installing/linux/) for installation steps.
+
+**Install Jenkins LTS on Ubuntu 26.04 LTS:**
+
+```
+# Jenkins requires Java 17 or 21. Java 21 LTS is recommended.
+sudo apt update
+sudo apt install -y fontconfig openjdk-21-jre curl
+
+# Add the Jenkins signing key and apt repository
+sudo curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key \
+  -o /usr/share/keyrings/jenkins-keyring.asc
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/" | \
+  sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+
+sudo apt update
+sudo apt install -y jenkins
+
+sudo systemctl enable --now jenkins
+sudo systemctl status jenkins
+```
+
+> **Note:** Java 8 and Java 11 are **no longer supported** by current Jenkins LTS releases.
+> Use `openjdk-21-jre` (controller) and `openjdk-21-jdk` (agents).
 
 [Refer offline plugin download page](https://updates.jenkins.io/download/plugins/).
 
@@ -41,7 +65,7 @@ First, we have created 3 instances Master Slave1and Slave2. And then we have ins
 
 ### Step 1: Check the status of the Jenkins first.
 
-`service jenkins status`
+`sudo systemctl status jenkins`
 
 ![image](https://user-images.githubusercontent.com/37858762/236325469-8b58cf0a-500c-4b8a-928a-f523da2b3242.png)
 
@@ -147,7 +171,10 @@ As you can see the agent.jar file appears there, which means our file has been s
 
 ### Step 19: Now install run the following installation command on both terminal.
 
-`sudo apt install openjdk-11-jdk`
+`sudo apt install -y openjdk-21-jdk`
+
+_Jenkins agents must run the same major Java version family as the controller. Jenkins LTS
+supports Java 17 and Java 21 only - Java 8/11 agents will be rejected._
 
 ![image](https://user-images.githubusercontent.com/37858762/236324904-e16233e9-4141-479b-a50f-f5a73f9b6212.png)
 
@@ -185,7 +212,12 @@ https://github.com/vistasunil/devopsIQ.git
 
 ### Step 2: Install docker on both **Slave1** and **Slave2**.
 
-`sudo apt install docker.io`
+`sudo apt install -y docker.io`
+
+Add the Jenkins agent user to the `docker` group so builds can run docker commands,
+then reconnect the agent:
+
+`sudo usermod -aG docker $USER`
 
 ![image](https://user-images.githubusercontent.com/37858762/236324780-c8d8bb4b-b1e5-47a3-af22-9cdf33eabaab.png)
 
@@ -254,9 +286,9 @@ Now go back to configuring the job.
 ### Step 8: Click on **Build** , then go to **Execute shell**
 
 ```
-sudo docker rm -f $(sudo docker ps -a -q)
-sudo docker build /home/ubuntu/jenkins/workspace/Demo -t devopsdemo
-sudo docker run -it -p 82:80 -d devopsdemo
+sudo docker rm -f $(sudo docker ps -a -q) || true
+sudo docker build -t devopsdemo /home/ubuntu/jenkins/workspace/Demo
+sudo docker run -p 82:80 -d devopsdemo
 ```
 
 ![image](https://user-images.githubusercontent.com/37858762/236324483-4963bcdf-4d68-4f10-bf4b-80df710e8811.png)
@@ -267,7 +299,7 @@ Before building our job again we must add one arbitrary container in slave1.
 
 ### Step 9: Add container by performing the following command.
 
-`sudo docker run -it -d ubuntu`
+`sudo docker run -it -d ubuntu:26.04`
 
 ![image](https://user-images.githubusercontent.com/37858762/236324422-6c2c0cd2-5f67-411e-9748-fb89b175da11.png)
 
